@@ -159,6 +159,37 @@ class Game {
         }
 };
 
+class Dog{
+    public:
+        string name;
+        double weight;
+        string fur_color;
+        Dog(string aName, double aWeight, string aFur_color){
+            name = aName;
+            weight = aWeight;
+            fur_color = aFur_color;
+        }
+
+        void Bark(){
+            cout << "Bark bark bark, shut up" << endl;
+        }
+};
+
+class BorderCollie : public Dog {
+    public:
+        BorderCollie(string aName, double aWeight, string aFur_color){
+            name = aName;
+            weight = aWeight;
+            fur_color = aFur_color;
+        }
+
+        void fetch() {
+            cout << "I just fetched the stick you threw, here you go" << endl;
+        }
+
+
+};
+
 int main()
 {
     string user_name = "Joseph";
@@ -276,6 +307,9 @@ int main()
 
     Game Rimworld("Rimworld", "Ludeon", 2018, 'F');
     cout << Rimworld.getRating() << endl;
+
+    BorderCollie futuredog("yo", 40, "white");
+
 
     return 0;
 }
