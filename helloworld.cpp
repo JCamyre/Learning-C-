@@ -120,7 +120,43 @@ class Car {
             engine_size = aEngine_size;
             cout << "Creating car: " << year << " " << make << " " << model << endl;
         }
-        
+
+        bool isOld(){
+            if (year < 2010) {
+                return true;
+            return false;
+        }
+    }
+};
+
+class Game {
+    // private: can only be accessed within the Class. GETTERS AND SETTERS. The setter function is ran internally whenever trying to assign value to attribute.
+    private:
+        char rating;
+    // public: any other code can access these attributes and methods
+    public:
+        string name;
+        string studio;
+        int year;
+
+        Game(string aName, string aStudio, int aYear, char aRating){
+            name = aName;
+            studio = aStudio;
+            year = aYear;
+            setRating(aRating);
+        }
+
+        void setRating(char aRating){
+            if (aRating == 'E' || aRating == 'T' || aRating == 'M'){
+                rating = aRating;
+            } else {
+                rating = 'M';
+            }
+        }
+
+        char getRating(){
+            return rating;
+        }
 };
 
 int main()
@@ -234,8 +270,12 @@ int main()
     cout << *pMake << endl;
 
     Car Lexus_GS350("Lexus", "GS350", 2010, 3.5);
+    cout << Lexus_GS350.isOld() << endl;
     Car nothing;
     cout << nothing.make << endl;
+
+    Game Rimworld("Rimworld", "Ludeon", 2018, 'F');
+    cout << Rimworld.getRating() << endl;
 
     return 0;
 }
