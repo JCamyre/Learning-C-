@@ -66,17 +66,38 @@ void guessing_game() {
     int guess;
     int guess_count = 1;
     int guess_limit = 10;
+    bool out_of_guesses = false;
 
     cout << "Guess the number between 1 and 10: ";
     cin >> guess;
-    while(guess != secret_num && guess_count <= guess_limit) {
-        cout << "Incorrect! Try again: ";
-        cin >> guess;
-        guess_count++;
+    while(guess != secret_num) {
+        // Could've done && !out_of_guesses, but I did break;
+        if (guess_count <= guess_limit) {
+            cout << "Incorrect! Try again: ";
+            cin >> guess;
+            guess_count++;
+        } else {
+            out_of_guesses = true;
+            break;
+        }
+
     };
     
-    cout << "Good job, you guessed the correct number, " << secret_num << " after " << guess_count << " guess(es)!" << endl;  
+    if (out_of_guesses) {
+        cout << "Good job, you failed." << endl;
+    } else {
+        cout << "Good job, you guessed the correct number, " << secret_num << " after " << guess_count << " guess(es)!" << endl;  
+    }
 };
+
+int pow_func(int num, int power) {
+    int result = 1;
+    for(int i=0; i < power; i++) {
+        result = result * num;
+    }
+
+    return result;
+}
 
 
 int main()
@@ -142,7 +163,54 @@ int main()
         i++;
     }while(i <= 10);
 
-    guessing_game();
+    // guessing_game();
+
+    for(int i = 0; i <= 10; i++) {
+        cout << "Looping through for loop, currently on index: " << i << endl;
+    };
+
+    int ages[] {18, 21, 19, 24, 23};
+
+    for(int i = 0; i <= 5; i++) {
+        cout << ages[i] << endl;
+    };
+
+    cout << pow_func(2, 3) << endl;
+
+    // string board[3][3] = {
+    //     {"😂", "😂", "😂"},
+    //     {"😂", "😂", "😂"},
+    //     {"😂", "😂", "😂"}
+    // };
+    char board[3][3] = {
+        {'a', 'b', 'c'},
+        {'a', 'b', 'c'},
+        {'a', 'b', 'c'}
+    };
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            cout << board[i][j] << " ";
+        }
+        cout << endl;
+    };
+
+    // Pointers, another type of data. Memory address. Variables are containers that hold information. Computers uses ram to store and keep track of information. It takes variable values and stores it in memory of computer.
+    // Each value is stored an unique address in the physical memory (address) (in your ram). We just have to say the variable name, they have to use physical memory address.
+    string make = "Lexus";
+    string *pMake = &make;
+    string model = "GS 350";
+    int year = 2010;
+    int *pYear = &year;
+    double weight = 3402.12;
+    double *pWeight = &weight;
+
+    // This is considered printing a "pointer", a memory address.
+    cout << pMake << " " << pYear << " " << pWeight << " " << endl;
+    
+    // "Dereferencing" a pointer, using the pointer or memory address to access value stored at the address in the ram.
+    cout << *pMake << endl;
+
+    
 
     return 0;
 }
