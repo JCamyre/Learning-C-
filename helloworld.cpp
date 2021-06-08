@@ -14,20 +14,39 @@ double calculator() {
 
     cout << "Enter first number: ";
     cin >> num_1;
+    cout << "Choose operation: +, -, *, or /: ";
+    cin >> operation;
     cout << "Enter second number: ";
     cin >> num_2;
-    cout << "Choose operation: +, -, *, or /.: ";
-    cin >> operation;
- 
-    if (operation == '+') {
-        return num_1 + num_2;
-    } else if (operation == '-') {
-        return num_1 - num_2;
-    } else if (operation == '*') {
-        return num_1 * num_2;
-    } else {
-        return num_1 / num_2;
+    
+    // Using if statements for this scenario when set options to choose from, PEPELAUGH
+    // if (operation == '+') {
+    //     return num_1 + num_2;
+    // } else if (operation == '-') {
+    //     return num_1 - num_2;
+    // } else if (operation == '*') {
+    //     return num_1 * num_2;
+    // } else {
+    //     return num_1 / num_2;
+    // }
+
+    double result;
+    // Switch cases are op. Much more efficient than if statements. Sorta like accessing value from dictionary (or hashmap).
+    switch(operation) {
+        case '+':
+            result = num_1 + num_2;
+            break;
+        case '-':
+            result = num_1 - num_2;
+            break;
+        case '*':
+            result = num_1 * num_2;
+            break;
+        default:
+            result = num_1 / num_2;
+            break;
     }
+    return result;
 };
 
 string greetings(string user_name) {
@@ -39,6 +58,24 @@ string greetings(string user_name) {
     cout << greeting.substr(8, 7) << endl;
 
     return greeting;
+};
+
+// void since only printing stuff out
+void guessing_game() {
+    int secret_num = 5;
+    int guess;
+    int guess_count = 1;
+    int guess_limit = 10;
+
+    cout << "Guess the number between 1 and 10: ";
+    cin >> guess;
+    while(guess != secret_num && guess_count <= guess_limit) {
+        cout << "Incorrect! Try again: ";
+        cin >> guess;
+        guess_count++;
+    };
+    
+    cout << "Good job, you guessed the correct number, " << secret_num << " after " << guess_count << " guess(es)!" << endl;  
 };
 
 
@@ -90,8 +127,22 @@ int main()
         cout << "Yikes not me, it's okay there is only one me" << endl;
     };
 
-    double results = calculator();
-    cout << results << endl;
+    // double results = calculator();
+    // cout << results << endl;
+
+    int i = 0;
+    while (i <= 10) {
+        cout << i << endl;
+        i++;
+    }
+
+    // do while loop. do something, then check code. Reverse of regular while loop where you check condition then loop. That's why it prints out 11.
+    do{
+        cout << i << endl;
+        i++;
+    }while(i <= 10);
+
+    guessing_game();
 
     return 0;
 }
