@@ -99,6 +99,29 @@ int pow_func(int num, int power) {
     return result;
 }
 
+class Car {
+    public:
+        string make;
+        string model;
+        int year;
+        double engine_size;
+        // Constructor, runs when initializing instance of Car class. Same as __init__()
+        Car() {
+            make = "none";
+            model = "none";
+            year = 2021;
+            engine_size = 3.0;
+        }
+
+        Car(string aMake, string aModel, int aYear, double aEngine_size) {
+            make = aMake;
+            model = aModel;
+            year = aYear;
+            engine_size = aEngine_size;
+            cout << "Creating car: " << year << " " << make << " " << model << endl;
+        }
+        
+};
 
 int main()
 {
@@ -210,7 +233,9 @@ int main()
     // "Dereferencing" a pointer, using the pointer or memory address to access value stored at the address in the ram.
     cout << *pMake << endl;
 
-    
+    Car Lexus_GS350("Lexus", "GS350", 2010, 3.5);
+    Car nothing;
+    cout << nothing.make << endl;
 
     return 0;
 }
