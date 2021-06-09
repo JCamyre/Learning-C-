@@ -160,15 +160,18 @@ class Game {
 };
 
 class Dog{
-    public:
+    private:
         string name;
         double weight;
         string fur_color;
+
+    public:
         Dog(string aName, double aWeight, string aFur_color){
             name = aName;
             weight = aWeight;
             fur_color = aFur_color;
         }
+        // setters and getters
 
         void Bark(){
             cout << "Bark bark bark, shut up" << endl;
@@ -177,12 +180,6 @@ class Dog{
 
 class BorderCollie : public Dog {
     public:
-        BorderCollie(string aName, double aWeight, string aFur_color){
-            name = aName;
-            weight = aWeight;
-            fur_color = aFur_color;
-        }
-
         void fetch() {
             cout << "I just fetched the stick you threw, here you go" << endl;
         }
@@ -310,6 +307,11 @@ int main()
 
     BorderCollie futuredog("yo", 40, "white");
 
+    // Bitwise operator, right shift operator (>>)
+    int s = 23; // 10111
+    std::cout << s << endl;
+    s = s >> 1; // 1011
+    cout << s << endl;
 
     return 0;
 }
