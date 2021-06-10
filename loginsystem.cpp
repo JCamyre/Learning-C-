@@ -22,7 +22,7 @@ void login(string username, string password, string un, string pw){
             cout << "Username: "; cin >> username;
             cout << "Password: "; cin >> password;
             if(username==un && password==pw){
-                cout << "Hello, " << username << " you are logged in!" << endl; 
+                cout << "Hello, " << username << " you have successfully logged in!" << endl; 
                 break;
             }
         }
@@ -65,7 +65,7 @@ void signup(string username, string password){
 int main(){
     int choice;
     string username; string password; string un; string pw;
-    cout << "Would you like to login or register an account:" << endl;
+    cout << "Would you like to login or register an account?" << endl;
 
 
     while(true) {
