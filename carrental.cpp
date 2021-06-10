@@ -8,8 +8,9 @@ void log_rental(string name, string phonenumber, string licenseplate, string mak
     time_t now = time(0);
     // Idk what the * for char* does. &now is the pointer. 
     char* dt = ctime(&now);
-    ofstream file;
-    file.open("carrental\\log.txt");
+    // Don't have to do std::ofstream, but looks cool.
+    std::ofstream file;
+    file.open("carrental\\log.txt", std::ios_base::app);
     file << name << endl << phonenumber << endl << licenseplate << endl << make << endl << model << endl << payment << endl << days << endl << dt << "==========================================================" << endl;
     file.close();
 }
