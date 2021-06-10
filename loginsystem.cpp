@@ -47,7 +47,6 @@ int main(){
                     cout << "Sorry, incorrect password or username, try again!" << endl;
                     cout << "Username: "; cin >> username;
                     cout << "Password: "; cin >> password;
-                    cout << password << endl << username << endl;
                     if(username==un && password==pw){
                         cout << "Hello, " << username << " you are logged in!" << endl; 
                         break;
