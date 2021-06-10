@@ -2,6 +2,7 @@
 // iostream stands for standard input-output stream. cin, cout. 
 #include <fstream>
 #include <string>
+#include <filesystem>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ void login(string username, string password, string un, string pw){
     cout << "Username: "; cin >> username;
     cout << "Password: "; cin >> password;
 
-    ifstream read("data\\" + username + ".txt");
+    ifstream read("login_data\\" + username + ".txt");
     getline(read, un);
     getline(read, pw);
     if(username==un && password==pw){
@@ -30,27 +31,35 @@ void login(string username, string password, string un, string pw){
 }
 
 void signup(string username, string password){
-    string retyped_password;
-    cout << "Please enter your desired username and password." << endl;
-    cout << "Username: "; cin >> username;
-    cout << "Password: "; cin >> password;
-    cout << "Confirm password: "; cin >> retyped_password;
-    if(password == retyped_password) {
-        cout << "Congratulations, your account has been created!" << endl;
-        // Condition for if username already exists. else if() {}
-    } else {
-        cout << "There seems to be an error while creating your account. Ensure you retyped your password correctly." << endl;
-        while (true) {
-            cout << "Please enter your desired username and password." << endl;
-            cout << "Username: "; cin >> username;
-            cout << "Password: "; cin >> password;
-            cout << "Confirm password: "; cin >> retyped_password;
+    string retyped_password; string un;
+
+    while(true){
+        cout << "Please enter your desired username and password." << endl;
+        cout << "Username: "; cin >> username;
+        cout << "Password: "; cin >> password;
+        cout << "Confirm password: "; cin >> retyped_password;   
+        ifstream read("login_data\\" + username + ".txt");
+        getline(read, un);
+
+        if(username==un){
+            cout << "Sorry, that username already exists. If it is yours, please sign in. Otherwise, choose a new username." << endl;
+            continue;
+        } else if(password!=retyped_password){
+            cout << "Your passwords do not match. Please try again." << endl;
+            continue;
+        } else {
+            cout << "Congratulations, your account has been created!" << endl;
+            break;
         }
+
     }
+
+    // Saving account information in .txt file.
     ofstream file;
-    file.open("data\\" + username + ".txt");
+    file.open("login_data\\" + username + ".txt");
     file << username << endl << password;
     file.close();
+
 }
 
 int main(){
