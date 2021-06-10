@@ -27,12 +27,12 @@ int main(){
     int choice;
     string username; string password; string un; string pw;
     cout << "Would you like to login or register an account:" << endl;
-    cout << "Login: 1" << endl; cout << "Sign Up: 2" << endl;
-    cin >> choice;
 
-    switch(choice) {
-        // Login
-        case 1:
+
+    while(true) {
+        cout << "Login: 1" << endl; cout << "Sign Up: 2" << endl;
+        cin >> choice;
+        if (choice == 1) {
             cout << "Please enter your username and password." << endl;
             cout << "Username: "; cin >> username;
             cout << "Password: "; cin >> password;
@@ -41,17 +41,22 @@ int main(){
             getline(read, un);
             getline(read, pw);
             if(username==un && password==pw){
-                cout << "You are logged in!" << endl;
+                cout << "Hello, " << username << " you are logged in!" << endl; 
             } else {
                 while (!loggedin){
-
+                    cout << "Sorry, incorrect password or username, try again!" << endl;
+                    cout << "Username: "; cin >> username;
+                    cout << "Password: "; cin >> password;
+                    cout << password << endl << username << endl;
+                    if(username==un && password==pw){
+                        cout << "Hello, " << username << " you are logged in!" << endl; 
+                        break;
+                    }
                 }
-                cout << "Sorry, incorrect password or username, try again!" << endl;
             }
-            // Logic for checking for file with "username.txt", and check to see if info the same.
+            system("PAUSE");
             break;
-        // Register
-        case 2: 
+        } else if (choice == 2){
             string retyped_password;
             cout << "Please enter your desired username and password." << endl;
             cout << "Username: "; cin >> username;
@@ -69,7 +74,11 @@ int main(){
                     cout << "Confirm password: "; cin >> retyped_password;
                 }
             }
-            // Add code for registering user
+            ofstream file;
+            file.open("data\\" + username + ".txt");
+            file << username << endl << password;
+            file.close();
+        }
     }
 
 
