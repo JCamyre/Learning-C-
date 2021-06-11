@@ -38,11 +38,17 @@ void log_available_cars(){
     }
     file.close();
     read.close();
-    
+
     if(remove("carrental\\available.txt")!=0){
-        perror("Error removing file");
+        perror("Error renaming file");
     }
 
+    char oldname[] = "carrental\\temp.txt";
+    char newname[] = "carrental\\available.txt";
+    
+    if(rename(oldname, newname)!=0){
+        perror("Error renaming file");
+    }
 }
 
 int main(){
