@@ -62,7 +62,8 @@ bool log_available_cars(string licenseplate){
 int main(){
     int choice;
     int days;
-    string licenseplate;
+    string licenseplate; string make; string model; string name; string phonenumber;
+
 
     cout << "Are we renting (1) or returning (2) a car today?" << endl; cin >> choice;
     cout << "Okay great, can you give me the licenseplate number of that car please? "; cin >> licenseplate;
@@ -70,12 +71,17 @@ int main(){
         if(log_available_cars(licenseplate)){
             cout << "This car is available! How many days would you like to rent this car out for? It is a flat rate of $" << 40 << " and costs $" << 40 << " per day!" << endl;
             cout << "Days: "; cin >> days;
-
+            cout << "The make and model aswell please." << endl;
+            cout << "Make: "; cin >> make; cout << endl;
+            cout << "Model: "; cin >> model; cout << endl;
+            cout << "Finally, can I get your name and phonenumber?" << endl;
+            cout << "Name: "; cin >> name;
+            cout << "Phone number: "; cin >> phonenumber;
+            log_rental("Joseph", "9167376676", "8AO4DWOS", "Lexus", "GS350", 252.50, 7);
         }
         
         // Customer wants to rent a car. If car available, log_rental();
     }
-    // log_rental("Joseph", "9167376676", "8AO4DWOS", "Lexus", "GS350", 252.50, 7);
     string line;
     ifstream read("carrental\\log.txt");
     ofstream file;
