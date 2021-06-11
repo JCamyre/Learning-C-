@@ -1,1 +1,99 @@
-
+Name: Joseph
+Phone number: Camyre
+License plate: LF5ZTQ
+Make: Lexus
+Model: GS350
+Payment: 200
+Days: 4
+Date: Thu Jun 10 22:23:25 2021
+==========================================================
+Name: 
+Phone number: 
+License plate: a
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Thu Jun 10 22:27:07 2021
+==========================================================
+Name: 
+Phone number: Lexus
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:19:16 2021
+==========================================================
+Name: 
+Phone number: 9167376676
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:19:41 2021
+==========================================================
+Name: 
+Phone number: 
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:39:31 2021
+==========================================================
+Name: 
+Phone number: 
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:39:45 2021
+==========================================================
+Name: 
+Phone number: 
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:40:15 2021
+==========================================================
+Name: Joseph
+Phone number: 
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:40:27 2021
+==========================================================
+Name: Joseph
+Phone number: Camyre
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:46:42 2021
+==========================================================
+Name: Joseph
+Phone number: Camyre
+License plate: LF5ZTQ
+Make: 
+Model: 
+Payment: 40
+Days: 0
+Date: Fri Jun 11 10:47:12 2021
+==========================================================
+Name: Joseph
+Phone number: 9167376676
+License plate: LF5ZTQ
+Make: Lexus
+Model: GS350
+Payment: 240
+Days: 5
+Date: Fri Jun 11 10:49:08 2021
+==========================================================
