@@ -6,7 +6,12 @@
 
 using namespace std;
 // Maybe track year of each car
-void log_rental(string name, string phonenumber, string licenseplate, string make, string model, double payment, int days){
+void log_rental(string name, string phonenumber, string licenseplate, string make, string model, int days){
+    double payment;
+    // For now constant rent rates
+    payment = 40 + (40 * days);
+
+    // Getting current datetime
     time_t now = time(0);
     // Idk what the * for char* does. &now is the pointer. 
     char* dt = ctime(&now);
@@ -18,21 +23,22 @@ void log_rental(string name, string phonenumber, string licenseplate, string mak
     file << "Model: " << model << endl << "Payment: " << payment << endl << "Days: " << days << endl << "Date: " << dt << "==========================================================" << endl;
     file.close();
     // If a car is rented, we have to take off available.txt. Identify car by License plate.
-    string line;
-    ifstream read("carrental\\available.txt");
-    while(getline(read, line)){
-        cout << line.find("Lexus") << endl;
-    }
+
 }
 
-void log_available_cars(){
+bool log_available_cars(string licenseplate){
     // Idea for this: have a temp.txt where you append the lines of car information. Then delete the original available.txt, and rename temp.txt to available.txt.
     string line;
+    bool car_available = false;
+
+    // Updating available cars file
     ifstream read("carrental\\available.txt");
     ofstream file;
     file.open("carrental\\temp.txt");
     while(getline(read, line)){
-        if(line.find("Lexus")==std::string::npos){
+        if(line.find(licenseplate)!=std::string::npos){
+            car_available = true;
+        } else {
             file << line << endl;
         }
     }
@@ -49,14 +55,24 @@ void log_available_cars(){
     if(rename(oldname, newname)!=0){
         perror("Error renaming file");
     }
+
+    return car_available;
 }
 
 int main(){
     int choice;
+    int days;
+    string licenseplate;
 
-    log_available_cars();
-
+    cout << "Are we renting (1) or returning (2) a car today?" << endl; cin >> choice;
+    cout << "Okay great, can you give me the licenseplate number of that car please? "; cin >> licenseplate;
     if(choice==1){
+        if(log_available_cars(licenseplate)){
+            cout << "This car is available! How many days would you like to rent this car out for? It is a flat rate of $" << 40 << " and costs $" << 40 << " per day!" << endl;
+            cout << "Days: "; cin >> days;
+
+        }
+        
         // Customer wants to rent a car. If car available, log_rental();
     }
     // log_rental("Joseph", "9167376676", "8AO4DWOS", "Lexus", "GS350", 252.50, 7);
