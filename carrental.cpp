@@ -2,6 +2,7 @@
 #include <fstream>
 #include <ctime>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 // Maybe track year of each car
@@ -25,11 +26,29 @@ void log_rental(string name, string phonenumber, string licenseplate, string mak
 }
 
 void log_available_cars(){
+    // Idea for this: have a temp.txt where you append the lines of car information. Then delete the original available.txt, and rename temp.txt to available.txt.
+    string line;
+    ifstream read("carrental\\available.txt");
+    ofstream file;
+    file.open("carrental\\temp.txt");
+    while(getline(read, line)){
+        if(line.find("Lexus")==std::string::npos){
+            file << line << endl;
+        }
+    }
+    file.close();
+    read.close();
     
+    if(remove("carrental\\available.txt")!=0){
+        perror("Error removing file");
+    }
+
 }
 
 int main(){
     int choice;
+
+    log_available_cars();
 
     if(choice==1){
         // Customer wants to rent a car. If car available, log_rental();
@@ -37,11 +56,16 @@ int main(){
     // log_rental("Joseph", "9167376676", "8AO4DWOS", "Lexus", "GS350", 252.50, 7);
     string line;
     ifstream read("carrental\\log.txt");
+    ofstream file;
+    file.open("carrental\\log.txt", std::ios_base::app);
+    
+    string kw = "Lexus";
     while(getline(read, line)){
-        int a = line.string::find("Lexus");
+        int a = line.string::find(kw);
         // std::string::npos is equal to the last possible position for the string, which is what is returned if line.string::find() doesn't get a match
         if(a!=std::string::npos){
-            cout << line << endl;
+            file << line << endl;
+            line.replace(a, kw.length(), "");
         }
     }
 
