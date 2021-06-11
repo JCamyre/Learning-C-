@@ -75,13 +75,13 @@ int main(){
     cout << "Are we renting (1) or returning (2) a car today?" << endl; cin >> choice;
     while(true){
         cout << "Okay great, can you give me the licenseplate number of that car please? "; cin >> licenseplate;
+        cout << "The make and model aswell please." << endl;
+        cout << "Make: "; cin >> make;
+        cout << "Model: "; cin >> model;
         if(choice==1){
             if(log_available_cars(licenseplate)){
                 cout << "This car is available! How many days would you like to rent this car out for? It is a flat rate of $" << 40 << " and costs $" << 40 << " per day!" << endl;
                 cout << "Days: "; cin >> days;
-                cout << "The make and model aswell please." << endl;
-                cout << "Make: "; cin >> make;
-                cout << "Model: "; cin >> model;
                 cout << "Finally, can I get your name and phonenumber?" << endl;
                 cout << "First name: "; cin >> name;
                 // cout << "Last name: "; cin >> last_name; cout << endl;
@@ -95,23 +95,9 @@ int main(){
         } else if(choice==2){
             cout << "Okay great, we'll both your return into the system right now." << endl;
             return_car(licenseplate, make, model);
+            break;
         }
     }
-
-    // string line;
-    // ifstream read("carrental\\log.txt");
-    // ofstream file;
-    // file.open("carrental\\log.txt", std::ios_base::app);
-    
-    // string kw = "Lexus";
-    // while(getline(read, line)){
-    //     int a = line.string::find(kw);
-    //     // std::string::npos is equal to the last possible position for the string, which is what is returned if line.string::find() doesn't get a match
-    //     if(a!=std::string::npos){
-    //         file << line << endl;
-    //         line.replace(a, kw.length(), "");
-    //     }
-    // }
 
     return 0;
 }
