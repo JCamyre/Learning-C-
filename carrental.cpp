@@ -4,6 +4,9 @@
 #include <string>
 #include <stdio.h>
 
+// Things to do add:
+// car rental.txt? Customer.txt?
+
 using namespace std;
 // Maybe track year of each car
 void log_rental(string name, string phonenumber, string licenseplate, string make, string model, int days){
@@ -27,7 +30,6 @@ void log_rental(string name, string phonenumber, string licenseplate, string mak
 }
 
 bool log_available_cars(string licenseplate){
-    // Idea for this: have a temp.txt where you append the lines of car information. Then delete the original available.txt, and rename temp.txt to available.txt.
     string line;
     bool car_available = false;
 

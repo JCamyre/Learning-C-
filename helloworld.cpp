@@ -310,6 +310,7 @@ int main()
 
     BorderCollie futuredog("yo", 40, "white");
 
+    printf("yo");
 
     return 0;
 }

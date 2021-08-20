@@ -1,0 +1,14 @@
+Book class, feeddata(), editdata, showdata, buybook methods.
+ALl of the attributes are pointers.
+
+New instance of book with variable name B, is a pointer.
+Bunch of int variables
+Don't understand what char var[20] means, since you can only have one character for char data type (stores character value as ASCII equivalent integer value)
+
+Suduko game:
+grid isn't an instance, just a 2d array, representing suduko board.
+
+Member functions are same as methods.
+Virtual functions - basically just when inheriting from a base class and overriding method from said base class. (I think that's it)board.
+
+Polymorphism - 

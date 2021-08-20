@@ -1,1 +1,1 @@
-    return 0;
+    // address = &val;
