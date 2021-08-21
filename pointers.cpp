@@ -20,6 +20,34 @@ int main(){
     // address = &val; not necessary, address is linked to the address of val, so it auto updates
     cout << address << endl;
     cout << *address << endl; // dereferencing
+    cout << &address << endl; // address of address
 
-    return 0;
+    *address = 12;
+    cout << *address << endl << val << endl;
+
+    int val2 = 25;
+    *address = val2;
+    cout << *address << address << endl; // val changes, but the address it is storing stays the same
+
+    int val3 = 1;
+    int *address2 = &val3; // can do int* address2 = &val3
+    
+    printf("Address of address2: %d\n", address2);
+    printf("Size of val3: %d bytes\n", sizeof(val3));
+    printf("Address of address2 + 1: %d\n", address2+1);
+
+    int *address3 = address2 + 1;
+    printf("Address of address2 + 1 aka address3: %d\n", address3);
+    // int testing = 1;
+    // *address3 = testing;
+    printf("Val at address3: %d\n", *address3);
+    printf("Address where the next address after address2 is stored: %d\n", address3);
+
+
+    char char1 = 'a';
+    char *charaddress = &char1; 
+    printf("Size of a char: %d byte\n", sizeof(char1));\
+    printf("Charaddress + 1: %d\n", charaddress+1);
+
+
 }
