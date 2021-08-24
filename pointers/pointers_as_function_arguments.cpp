@@ -19,17 +19,26 @@ using namespace std;
 // To fix this, use pointers
 // POG ACTUAL USE CASE FOR POINTERS
 // CALL BY REFERENCE (use pointers as arguments). Can save us a lot of memory, instead of creating a copy of a large and complex data type, we just reference back to original argument variable. We would've doubled our memory usage!! (for that function call)
-
+// Basically global variable
 
 void func(int var){
     var++;
     printf("Address of variable 'var' in func(): %d\n", &var);
 }
 
+void birthday(int *age){
+    *age = *age+1;
+    printf("Age: %d, address of variable: %d\n", *age, age);
+}
+
 int main(){
     int var = 0;
     printf("Address of variable 'var' i main(): %d\n", &var);
     func(var);
+
+    int age = 18;
+    printf("Age: %d, address of variable: %d\n", age, &age);
+    birthday(&age);
 
     return 0;
 }
