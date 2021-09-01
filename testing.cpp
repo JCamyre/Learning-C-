@@ -27,6 +27,9 @@ int main(){
     // for (int x: arr) { // for (i = 0; i < n; i++) {}
     //     cout << x << endl;
     // }
+    int p = 5;
+    int *pointer = &p;
+    std::cout << p << std::endl << pointer << std::endl << *pointer << std::endl; 
 
     cout << recursion(5) << endl;
 
