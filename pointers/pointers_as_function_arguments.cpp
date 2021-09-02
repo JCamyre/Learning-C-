@@ -40,5 +40,7 @@ int main(){
     printf("Age: %d, address of variable: %d\n", age, &age);
     birthday(&age);
 
+    // declare variable. pass in address of variable(pointer). argument accepts address/pointers. dereference address and alter variable. call by reference.
+
     return 0;
 }
